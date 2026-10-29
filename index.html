@@ -1843,7 +1843,7 @@ function draw(){
  lines.forEach((line,i)=>{el('tspan',{x:tx,y:a.y-12-(lines.length-1)*15+15*i},t).textContent=line;});g.addEventListener('click',()=>choose(key,true));});
  highlight();
 }
-select.addEventListener('change',()=>choose(select.value,true));const restored=window.openai?.widgetState?.privateContent;choose(restored?.selection||'');draw();new ResizeObserver(draw).observe(chart);
+select.addEventListener('change',()=>choose(select.value,true));const restored=window.openai?.widgetState?.privateContent;choose(restored?.selection||'Applied');draw();new ResizeObserver(draw).observe(chart);
 window.addEventListener('openai:set_globals',e=>{const state=e.detail?.globals?.widgetState;if(state?.privateContent)choose(state.privateContent.selection||'');});
 })();
 </script>
