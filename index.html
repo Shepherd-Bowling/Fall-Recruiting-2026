@@ -1808,8 +1808,9 @@ const names=['Applied','First round interview','Second/final round','Offer','In 
 const colors={'Applied':'var(--viz-series-1)','First round interview':'var(--viz-series-3)','Second/final round':'var(--viz-series-3)','Offer':'var(--viz-series-4)','In progress':'var(--viz-series-2)','Under review':'var(--viz-series-6)','Not Selected/Ghosted':'var(--viz-series-5)'};
 const order=[['Applied','First round interview'],['Applied','Under review'],['Applied','Not Selected/Ghosted'],['First round interview','Second/final round'],['Second/final round','Offer'],['Second/final round','In progress'],['Second/final round','Not Selected/Ghosted']];
 const filters=new Map(),count=p=>records.filter(p).length;
-names.forEach(n=>filters.set('node:'+n,{label:n,predicate:r=>r.path.includes(n)}));
-order.forEach(([a,b])=>filters.set('edge:'+a+'|'+b,{label:a+' → '+b,predicate:r=>r.path.some((p,i)=>p===a&&r.path[i+1]===b)}));
+const displayTitles={'Applied':'Applied','First round interview':'First Round Interview','Second/final round':'Second Round Interview','Offer':'Offer','In progress':'In Progress','Under review':'Under Review','Not Selected/Ghosted':'Not Selected/Ghosted'};
+names.forEach(n=>filters.set('node:'+n,{label:displayTitles[n],predicate:r=>r.path.includes(n)}));
+order.forEach(([a,b])=>filters.set('edge:'+a+'|'+b,{label:displayTitles[a]+' → '+displayTitles[b],predicate:r=>r.path.some((p,i)=>p===a&&r.path[i+1]===b)}));
 filters.forEach((f,key)=>{const o=document.createElement('option');o.value=key;o.textContent=f.label+' · '+count(f.predicate);select.append(o);});
 let selected='';
 function highlight(){const f=filters.get(selected);chart.querySelectorAll('[data-selection]').forEach(e=>{const own=filters.get(e.dataset.selection);e.style.opacity=!f||records.some(r=>f.predicate(r)&&own.predicate(r))?'1':'.14';});}
