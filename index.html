@@ -1851,7 +1851,6 @@ function draw(){
  nodes.forEach(a=&gt;{const key=&#x27;node:&#x27;+a.name,g=el(&#x27;g&#x27;,{&#x27;data-selection&#x27;:key,class:&#x27;cursor-interaction&#x27;},svg);el(&#x27;rect&#x27;,{x:a.x,y:a.y,width:nw,height:a.height,fill:colors[a.name],&#x27;fill-opacity&#x27;:&#x27;.75&#x27;,&#x27;data-tooltip&#x27;:a.name+&#x27;: &#x27;+a.value+&#x27; applications&#x27;},g);
  const final=finals.includes(a.name),anchor=final?&#x27;end&#x27;:a.name===&#x27;Applied&#x27;?&#x27;start&#x27;:&#x27;middle&#x27;,tx=final?a.x+nw:a.name===&#x27;Applied&#x27;?a.x:a.x+nw/2,lines=labels[a.name],t=el(&#x27;text&#x27;,{x:tx,y:a.y-12-(lines.length-1)*15,&#x27;text-anchor&#x27;:anchor},g);
  lines.forEach((line,i)=&gt;{el(&#x27;tspan&#x27;,{x:tx,y:a.y-12-(lines.length-1)*15+15*i},t).textContent=line;});g.addEventListener(&#x27;click&#x27;,()=&gt;choose(key,true));});
- const capco=nodes.get(&#x27;Not Selected/Ghosted&#x27;);el(&#x27;text&#x27;,{x:capco.x+nw,y:capco.y-48,&#x27;text-anchor&#x27;:&#x27;end&#x27;},svg).textContent=&#x27;Capco · 1 after final round&#x27;;
  highlight();
 }
 select.addEventListener(&#x27;change&#x27;,()=&gt;choose(select.value,true));const restored=window.openai?.widgetState?.privateContent;choose(restored?.selection||&#x27;&#x27;);draw();new ResizeObserver(draw).observe(chart);
