@@ -1784,9 +1784,9 @@ html>body{padding:0}</style>
 </script>
 <div id="recruiting-rounds">
 <h2>Fall Recruiting 2026</h2>
-<div class="text-small text-muted">49 applications · Aug 1–Oct 29</div>
+<div class="text-small text-muted">49 Applications · Aug 1–Oct 29</div>
 <div class="chart"></div>
-<label class="form-label" for="rounds-inspect">Inspect applications</label>
+<label class="form-label" for="rounds-inspect">View Application Details</label>
 <select class="form-select" id="rounds-inspect"><option value="">Choose a stage, outcome, or flow</option></select>
 <div class="detail" aria-live="polite"></div>
 </div>
@@ -1843,8 +1843,8 @@ function draw(){
  lines.forEach((line,i)=>{el('tspan',{x:tx,y:a.y-12-(lines.length-1)*15+15*i},t).textContent=line;});g.addEventListener('click',()=>choose(key,true));});
  highlight();
 }
-select.addEventListener('change',()=>choose(select.value,true));const restored=window.openai?.widgetState?.privateContent;choose(restored?.selection||'Applied');draw();new ResizeObserver(draw).observe(chart);
-window.addEventListener('openai:set_globals',e=>{const state=e.detail?.globals?.widgetState;if(state?.privateContent)choose(state.privateContent.selection||'');});
+select.addEventListener('change',()=>choose(select.value,true));choose('Applied');draw();new ResizeObserver(draw).observe(chart);
+window.addEventListener('openai:set_globals',e=>{const state=e.detail?.globals?.widgetState;if(state?.privateContent?.selection)choose(state.privateContent.selection);});
 })();
 </script>
 
