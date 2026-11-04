@@ -1798,6 +1798,17 @@ html>body{padding:0}</style>
 #recruiting-rounds .detail { margin-top:12px; }
 #recruiting-rounds .job-name { padding-block:10px; border-bottom:1px solid var(--border); overflow-wrap:anywhere; }
 
+#recruiting-rounds .job-name button {
+  background:transparent;
+  border:0;
+  padding:0;
+  color:inherit;
+  font:inherit;
+  text-align:left;
+  text-decoration:underline;
+  text-underline-offset:0.2em;
+  cursor:pointer;
+}
 #recruiting-rounds p { margin-block:6px; }
 </style>
 <script>
@@ -1817,7 +1828,22 @@ function highlight(){const f=filters.get(selected);chart.querySelectorAll('[data
 function choose(key,persist=false){
  selected=filters.has(key)?key:'';select.value=selected;detail.replaceChildren();const f=filters.get(selected);
  if(f){const matches=records.filter(f.predicate).sort((a,b)=>a.company.localeCompare(b.company)||a.role.localeCompare(b.role));const h=document.createElement('h3');h.textContent=f.label+' · '+matches.length;detail.append(h);
- matches.forEach(r=>{const p=document.createElement('p');p.className='job-name';p.textContent=r.company+' · '+r.role;detail.append(p);});}
+ matches.forEach(r=>{
+   const row=document.createElement('p');
+   row.className='job-name';
+   const button=document.createElement('button');
+   button.type='button';
+   button.textContent=r.company+' · '+r.role;
+   const outcome=r.path.at(-1);
+   button.title='View '+displayTitles[outcome];
+   button.addEventListener('click',()=>{
+     choose('node:'+outcome,true);
+     select.focus({preventScroll:true});
+     chart.scrollIntoView({block:'start'});
+   });
+   row.append(button);
+   detail.append(row);
+ });}
 
  highlight();if(persist&&window.openai?.setWidgetState)window.openai.setWidgetState({modelContent:f?{selection:f.label,applications:count(f.predicate)}:null,privateContent:{selection:selected}}).catch(()=>{});
 }
