@@ -1816,16 +1816,31 @@ html>body{padding:0}</style>
 const root=document.getElementById('recruiting-rounds'),records=[{"company":"Cognizant","role":"Frontier Certified Engineer (FCE)","path":["Applied","Not Selected/Ghosted"]},{"company":"Thales","role":"Support Specialist","path":["Applied","Not Selected/Ghosted"]},{"company":"FTI Consulting","role":"2027 Entry Level Consultant - Technology","path":["Applied","Not Selected/Ghosted"]},{"company":"Capco","role":"Associate Talent Program","path":["Applied","First round interview","Second/final round","Not Selected/Ghosted"]},{"company":"RTX","role":"Configuration Analyst","path":["Applied","Not Selected/Ghosted"]},{"company":"Shell","role":"Shell Graduate Program","path":["Applied","Not Selected/Ghosted"]},{"company":"SpaceX","role":"New Graduate Engineer, Software (Starship)","path":["Applied","Not Selected/Ghosted"]},{"company":"Tesla","role":"College Campus Hire - Engineering Internship (Winter/Spring 2027)","path":["Applied","Not Selected/Ghosted"]},{"company":"Two Sigma","role":"Software Engineering Full-Time Campus Hire - Houston","path":["Applied","Not Selected/Ghosted"]},{"company":"BP","role":"Supply, Trading, and Shipping Graduate Program- Analytics- Houston, TX","path":["Applied","First round interview","Second/final round","Not Selected/Ghosted"]},{"company":"Chevron","role":"2026-2027 Information Technology - Software Engineer - Full Time","path":["Applied","Not Selected/Ghosted"]},{"company":"Enterprise Products","role":"Information Technology Internship Program","path":["Applied","Not Selected/Ghosted"]},{"company":"Tesla","role":"Internship, Offensive Security Engineer, Information Security (Winter/Spring 2027)","path":["Applied","Not Selected/Ghosted"]},{"company":"Amentum","role":"Fall 2026 Intern - Parachute Engineer","path":["Applied","Not Selected/Ghosted"]},{"company":"Amentum","role":"Summer 2027 Intern - Structural Dynamics Engineer","path":["Applied","Not Selected/Ghosted"]},{"company":"Amentum","role":"Summer 2027 Intern - Structural Dynamics Engineer","path":["Applied","Not Selected/Ghosted"]},{"company":"Capital One","role":"Current Master's, AI Engineering Internship Program - Summer 2027","path":["Applied","Not Selected/Ghosted"]},{"company":"Cockrell Interests","role":"Investment Analyst Intern","path":["Applied","Not Selected/Ghosted"]},{"company":"Deloitte","role":"Consultative Offerings - Analyst - Cyber","path":["Applied","Not Selected/Ghosted"]},{"company":"Deloitte","role":"Consultative Offerings - Analyst - Data & AI Solutions Engineering","path":["Applied","Not Selected/Ghosted"]},{"company":"Deloitte","role":"Consultative Offerings - Analyst - Software Engineering","path":["Applied","First round interview","Second/final round","Offer"]},{"company":"Deloitte","role":"Consultative Offerings - Analyst - Technology Transformation (Packages, Platforms, & AI)","path":["Applied","Not Selected/Ghosted"]},{"company":"Hanover","role":"Real Estate Analyst - Capital Markets - Houston, TX","path":["Applied","Not Selected/Ghosted"]},{"company":"Hines","role":"ElevatE Rotation Program Analyst/Associate","path":["Applied","Not Selected/Ghosted"]},{"company":"IBM","role":"Entry Level Back-End Developer - Houston, TX","path":["Applied","Not Selected/Ghosted"]},{"company":"HPE","role":"Product Management Graduate","path":["Applied","Not Selected/Ghosted"]},{"company":"HPE","role":"Product Management Intern","path":["Applied","Not Selected/Ghosted"]},{"company":"HPE","role":"Software Engineer Graduate","path":["Applied","Not Selected/Ghosted"]},{"company":"HPE","role":"Software Engineer Intern","path":["Applied","Not Selected/Ghosted"]},{"company":"Dell Technologies","role":"IT Undergraduate Intern","path":["Applied","Not Selected/Ghosted"]},{"company":"Simulos","role":"Product Associate","path":["Applied","Not Selected/Ghosted"]},{"company":"Texas Instruments","role":"Career Accelerator Program - Data Engineer","path":["Applied","Not Selected/Ghosted"]},{"company":"Texas Instruments","role":"Career Accelerator Program - Program Management Engineer","path":["Applied","Not Selected/Ghosted"]},{"company":"Texas Instruments","role":"Career Accelerator Program - Systems Marketing Engineer (SEM)","path":["Applied","Not Selected/Ghosted"]},{"company":"Texas Instruments","role":"Career Accelerator Program - Software Engineer","path":["Applied","Not Selected/Ghosted"]},{"company":"Texas Instruments","role":"Career Accelerator Program - Systems Engineer - MS/PhD","path":["Applied","Not Selected/Ghosted"]},{"company":"BCG","role":"Consultant, Advanced Degree","path":["Applied","Not Selected/Ghosted"]},{"company":"Tesla","role":"Internship, Launch Engineer, Manufacturing (Winter/Spring 2027)","path":["Applied","Not Selected/Ghosted"]},{"company":"Tesla","role":"College Campus Hire - Engineering Internship (Summer 2027)","path":["Applied","Not Selected/Ghosted"]},{"company":"Tesla","role":"College Campus Hire - Engineering Full-Time (Fall 2027)","path":["Applied","Not Selected/Ghosted"]},{"company":"BCG","role":"Forward Deployed AI Engineer, BCG X","path":["Applied","Not Selected/Ghosted"]},{"company":"Microsoft","role":"Software Engineer","path":["Applied","Not Selected/Ghosted"]},{"company":"BCG","role":"BCG Platinion | AI Tech Consultant, Enterprise Solutions","path":["Applied","Not Selected/Ghosted"]},{"company":"BCG","role":"Forward Deployed AI Engineer Internship, BCG X","path":["Applied","Under review"]},{"company":"ExxonMobil","role":"STEM Early Career Full-Time Opportunities","path":["Applied","Not Selected/Ghosted"]},{"company":"ExxonMobil","role":"STEM Students Seeking Internship or Co-op Opportunities","path":["Applied","Not Selected/Ghosted"]},{"company":"ExxonMobil","role":"Students Seeking Internship/Co-op Opportunities in Trading","path":["Applied","Not Selected/Ghosted"]},{"company":"Simon-Kucher","role":"Summer 2027 Intern - Americas Division [UG/Masters]","path":["Applied","Not Selected/Ghosted"]},{"company":"NVIDIA","role":"System Software Engineering Intern, GPU and SOC - Summer 2027","path":["Applied","Not Selected/Ghosted"]},{"company":"NVIDIA","role":"2027 Internships: Software Engineering","path":["Applied","Under review"]},{"company":"Apple","role":"Machine Learning and Artificial Intelligence Masters Internships","path":["Applied","Under review"]},{"company":"Apple","role":"Software Engineering Masters Internships","path":["Applied","Under review"]},{"company":"Two Sigma","role":"AI Research Scientist - Campus Full-Time","path":["Applied","Not Selected/Ghosted"]},{"company":"Two Sigma","role":"Quantitative Researcher - Full-Time Campus Hire","path":["Applied","Not Selected/Ghosted"]},{"company":"Two Sigma","role":"Software Engineering Full-Time Campus Hire - NYC","path":["Applied","Under review"]},{"company":"Scotiabank","role":"Analyst, Mortgage Capital Markets, Global Capital Markets","path":["Applied","Not Selected/Ghosted"]}];
 const chart=root.querySelector('.chart'),select=root.querySelector('select'),detail=root.querySelector('.detail');
 const names=['Applied','First round interview','Second/final round','Offer','Under review','Not Selected/Ghosted'];
-const colors={'Applied':'var(--viz-series-1)','First round interview':'var(--viz-series-3)','Second/final round':'var(--viz-series-3)','Offer':'var(--viz-series-4)':'var(--viz-series-2)','Under review':'var(--viz-series-6)','Not Selected/Ghosted':'var(--viz-series-5)'};
+const colors={'Applied':'var(--viz-series-1)','First round interview':'var(--viz-series-3)','Second/final round':'var(--viz-series-3)','Offer':'var(--viz-series-4)','Under review':'var(--viz-series-6)','Not Selected/Ghosted':'var(--viz-series-5)'};
 const order=[['Applied','First round interview'],['Applied','Under review'],['Applied','Not Selected/Ghosted'],['First round interview','Second/final round'],['Second/final round','Offer'],['Second/final round','Not Selected/Ghosted']];
 const filters=new Map(),count=p=>records.filter(p).length;
-const displayTitles={'Applied':'Applied','First round interview':'First Round Interview','Second/final round':'Second Round Interview','Offer':'Offer':'In Progress','Under review':'Under Review','Not Selected/Ghosted':'Not Selected/Ghosted'};
-names.forEach(n=>filters.set('node:'+n,{label:displayTitles[n],predicate:r=>r.path.includes(n)}));
-order.forEach(([a,b])=>filters.set('edge:'+a+'|'+b,{label:displayTitles[a]+' → '+displayTitles[b],predicate:r=>r.path.some((p,i)=>p===a&&r.path[i+1]===b)}));
+const displayTitles={'Applied':'Applied','First round interview':'First Round Interview','Second/final round':'Second Round Interview','Offer':'Offer','Under review':'Under Review','Not Selected/Ghosted':'Not Selected/Ghosted'};
+names.forEach(n=>filters.set('node:'+n,{label:displayTitles[n],end:n,predicate:r=>r.path.includes(n)}));
+order.forEach(([a,b])=>filters.set('edge:'+a+'|'+b,{label:displayTitles[a]+' → '+displayTitles[b],end:b,predicate:r=>r.path.some((p,i)=>p===a&&r.path[i+1]===b)}));
 filters.forEach((f,key)=>{const o=document.createElement('option');o.value=key;o.textContent=f.label+' · '+count(f.predicate);select.append(o);});
 let selected='';
-function highlight(){const f=filters.get(selected);chart.querySelectorAll('[data-selection]').forEach(e=>{const own=filters.get(e.dataset.selection);e.style.opacity=!f||records.some(r=>f.predicate(r)&&own.predicate(r))?'1':'.14';});}
-function choose(key,persist=false){
+let selectedApplication=null;
+function highlight(){
+ const filter=filters.get(selected);
+ const stopAtRound=['First round interview','Second/final round'].includes(filter?.end);
+ chart.querySelectorAll('[data-selection]').forEach(element=>{
+   const segment=filters.get(element.dataset.selection);
+   const active=selectedApplication
+     ? segment.predicate(selectedApplication)
+     : !filter || records.some(record=>
+       filter.predicate(record)&&segment.predicate(record)&&
+       (!stopAtRound || record.path.indexOf(segment.end)<=record.path.indexOf(filter.end))
+     );
+   element.style.opacity=active?'1':'.14';
+ });
+}
+function choose(key,persist=false,application=null){
+ selectedApplication=application;
  selected=filters.has(key)?key:'';select.value=selected;detail.replaceChildren();const f=filters.get(selected);
  if(f){const matches=records.filter(f.predicate).sort((a,b)=>a.company.localeCompare(b.company)||a.role.localeCompare(b.role));const h=document.createElement('h3');h.textContent=f.label+' · '+matches.length;detail.append(h);
  matches.forEach(r=>{
@@ -1837,7 +1852,7 @@ function choose(key,persist=false){
    const outcome=r.path.at(-1);
    button.title='View '+displayTitles[outcome];
    button.addEventListener('click',()=>{
-     choose('node:'+outcome,true);
+     choose('node:'+outcome,true,r);
      select.focus({preventScroll:true});
      chart.scrollIntoView({block:'start'});
    });
@@ -1845,7 +1860,7 @@ function choose(key,persist=false){
    detail.append(row);
  });}
 
- highlight();if(persist&&window.openai?.setWidgetState)window.openai.setWidgetState({modelContent:f?{selection:f.label,applications:count(f.predicate)}:null,privateContent:{selection:selected}}).catch(()=>{});
+ highlight();if(persist&&window.openai?.setWidgetState)window.openai.setWidgetState({modelContent:f?{selection:f.label,applications:count(f.predicate)}:null,privateContent:{selection:selected,applicationIndex:records.indexOf(selectedApplication)}}).catch(()=>{});
 }
 const ns='http://www.w3.org/2000/svg';
 function el(tag,attrs,parent){const e=document.createElementNS(ns,tag);Object.entries(attrs||{}).forEach(([k,v])=>e.setAttribute(k,v));parent?.append(e);return e;}
@@ -1864,14 +1879,21 @@ function draw(){
  const d=`M${x1},${ya} C${x1+c},${ya} ${x2-c},${yb} ${x2},${yb} L${x2},${yb+th} C${x2-c},${yb+th} ${x1+c},${ya+th} ${x1},${ya+th}Z`;
  const g=el('g',{'data-selection':key,class:'cursor-interaction'},svg);el('path',{d,fill:colors[to],'fill-opacity':'.23','data-tooltip':f.label+': '+amount+' applications'},g);g.addEventListener('click',()=>choose(key,true));
  so[from]+=th;if(!(to==='Not Selected/Ghosted'&&from==='Second/final round'))ta[to]+=th;});
- const labels={'Applied':['Applied · '+n],'First round interview':['First Round','Interview · 3'],'Second/final round':['Second Round','Interview · 3'],'Offer':['Offer · 1','Deloitte']:['In Progress · 1','BP'],'Under review':['Under Review · '+count(r=>r.path.at(-1)==='Under review')],'Not Selected/Ghosted':['Not Selected/','Ghosted · '+count(r=>r.path.at(-1)==='Not Selected/Ghosted')]};
+ const labels={'Applied':['Applied · '+n],'First round interview':['First Round','Interview · 3'],'Second/final round':['Second Round','Interview · 3'],'Offer':['Offer · 1','Deloitte'],'Under review':['Under Review · '+count(r=>r.path.at(-1)==='Under review')],'Not Selected/Ghosted':['Not Selected/','Ghosted · '+count(r=>r.path.at(-1)==='Not Selected/Ghosted')]};
  nodes.forEach(a=>{const key='node:'+a.name,g=el('g',{'data-selection':key,class:'cursor-interaction'},svg);el('rect',{x:a.x,y:a.y,width:nw,height:a.height,fill:colors[a.name],'fill-opacity':'.75','data-tooltip':a.name+': '+a.value+' applications'},g);
  const final=finals.includes(a.name),anchor=final?'end':a.name==='Applied'?'start':'middle',tx=final?a.x+nw:a.name==='Applied'?a.x:a.x+nw/2,lines=labels[a.name],t=el('text',{x:tx,y:a.y-12-(lines.length-1)*15,'text-anchor':anchor},g);
  lines.forEach((line,i)=>{el('tspan',{x:tx,y:a.y-12-(lines.length-1)*15+15*i},t).textContent=line;});g.addEventListener('click',()=>choose(key,true));});
  highlight();
 }
 select.addEventListener('change',()=>choose(select.value,true));choose('node:Applied');draw();new ResizeObserver(draw).observe(chart);
-window.addEventListener('openai:set_globals',e=>{const state=e.detail?.globals?.widgetState;if(state?.privateContent?.selection)choose(state.privateContent.selection);});
+window.addEventListener('openai:set_globals',event=>{
+ const saved=event.detail?.globals?.widgetState?.privateContent;
+ if(!saved?.selection)return;
+ const application=Number.isInteger(saved.applicationIndex)
+   ? records[saved.applicationIndex]??null
+   : null;
+ choose(saved.selection,false,application);
+});
 })();
 </script>
 
